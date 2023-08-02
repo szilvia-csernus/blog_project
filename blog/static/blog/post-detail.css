@@ -22,7 +22,7 @@ body {
 #summary h2 {
   color: white;
   font-size: 4.5rem;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
 }
 
 #summary article {
@@ -70,6 +70,6 @@ main {
 .tag {
   background-color: white;
   color: #390281;
-  padding: 0.5rem 1rem;
+  padding: 0.4rem .9rem;
   border-radius: 8px;
 }
