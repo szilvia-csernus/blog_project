@@ -24,7 +24,9 @@
         {% for tag in post_tags %}
         <span class="tag">{{ tag.caption }}</span>
         {% endfor %}
-
+    </div>
+    <div id="read-later">
+        <button>Read Later</button>
     </div>
     <article>
         <img src="{{ post.image.url }}" alt="{{ post.title }}">
