@@ -1,12 +1,13 @@
 from django.db.models.query import QuerySet
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from django.views.generic import ListView
 from django.views import View
+from django.core.mail import send_mail, EmailMessage
 
 from .models import Post
-from .forms import CommentForm
+from .forms import CommentForm, ContactMeForm
 
 
 class StartingPageView(ListView):
@@ -103,6 +104,36 @@ class PostDetailView(View):
 #         "post_tags": identified_post.tags.all()
 #     })
 
+class SendEmailView(View):
+    def get(self, request):
+        form = ContactMeForm()
+        return render(request, "blog/contact-me.html", {
+            "form": form
+        })
+    
+    def post(self, request):
+        form = ContactMeForm(request.POST, request.FILES)  # Include request.FILES to handle attachments
+
+        if form.is_valid():
+            subject = "Contact Me Email from " + form.cleaned_data['user_name']
+            message = form.cleaned_data['text']
+            recipient_list = ['csernus.szilvi@gmail.com']
+
+            email = EmailMessage(subject, message, 'csernus.szilvia@gmail.com', recipient_list)
+
+            # Attach the file/image
+            if 'attachment' in request.FILES:
+                attachment = request.FILES['attachment']
+                email.attach('my-image', attachment.read(), attachment.content_type)
+
+            email.send()
+
+            return HttpResponse("Email sent successfully.")
+        else:
+            # Handle the case when the form is not valid
+            return render(request, "blog/contact-me.html", {
+                "form": form
+            })
 
 class ReadLaterView(View):
     def get(self, request):
@@ -137,4 +168,5 @@ class ReadLaterView(View):
             request.session["stored_posts"] = stored_posts
             
         return HttpResponseRedirect("/")
+    
         

@@ -16,7 +16,13 @@ My Blog
 <section id="welcome">
     <header>
         <img src="{% static "blog/images/szi.jpeg"%}" alt="Szilvi = The Author of this Blog">
-        <h2>SZILVIA'S BLOG</h2>
+        <div>
+            <h2>SZILVIA'S BLOG</h2>
+            <form action="{% url "contact-me" %}">
+                {% csrf_token %}
+                <button>Contact me!</button>
+            </form>
+        </div>
     </header>
     <p>Hi, I am Szilvia and I love to blog about tech and the world!</p>
 </section>

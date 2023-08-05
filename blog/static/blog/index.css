@@ -22,7 +22,7 @@
 }
 
 #welcome h2 {
-  font-size: 3.5rem;
+  font-size: 3rem;
   margin: 0 0 0 2rem;
   color: #e4e4e4;
   width: 10rem;
@@ -31,6 +31,21 @@
 #welcome p {
   color: white;
   font-size: 1.5rem;
+}
+
+#welcome button {
+  background-color: transparent;
+  border: 1px solid white;
+  margin: 1rem 0 0 2rem;
+  padding: .5rem 2rem;
+  font: inherit;
+  color: white;
+}
+
+#welcome button:hover,
+#welcome button:active {
+  background-color: white;
+  color: #390281;
 }
 
 #latest-posts {
