@@ -4,7 +4,9 @@ A practice project, part of Maximillian Schwarzmuller's "Python Django - The Pra
 
 ## Features
 
-Basic views, file uploads and session storage.
+Szilvia's Blog, last 3 posts on home page. All Posts page. Clicking a post leads to the detailed post page, where people can comment.
+People can save their featured posts that gets stored in session storage. (No Registration / Login!)
+Contact Me form, that sends a message to my email account, complete with image attachement!
 
 ## To get started with the development server:
 
