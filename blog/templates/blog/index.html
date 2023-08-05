@@ -17,14 +17,14 @@ My Blog
     <header>
         <img src="{% static "blog/images/szi.jpeg"%}" alt="Szilvi = The Author of this Blog">
         <div>
-            <h2>SZILVIA'S BLOG</h2>
+            <h2>VIA25'S BLOG</h2>
             <form action="{% url "contact-me" %}">
                 {% csrf_token %}
                 <button>Contact me!</button>
             </form>
         </div>
     </header>
-    <p>Hi, I am Szilvia and I love to blog about tech and the world!</p>
+    <p>Hi, my name is Szilvia and I love to blog about tech and the world!</p>
 </section>
 
 <section id="latest-posts">
@@ -38,11 +38,12 @@ My Blog
 </section>
 
 <section id="about">
-    <h2>What I do</h2>
+    <h2>About this project</h2>
     <p>
-        I love programming, love to help others and enjoy exploring new technologies in general!
+        This project was created as part of 
+        <a href="https://academind.com/">Maximilian Schwarzmüller's Django - The Practical Guide 2021 course.
+            </a>
     </p>
-    <p>My goal is to keep on growing as a developer and if I could help you do the same, I'd be very happy!</p>
 </section>
 
 {% endblock %}

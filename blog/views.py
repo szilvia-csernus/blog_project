@@ -116,10 +116,11 @@ class SendEmailView(View):
 
         if form.is_valid():
             subject = "Contact Me Email from " + form.cleaned_data['user_name']
-            message = form.cleaned_data['text']
+            from_email = form.cleaned_data['user_email']
+            message = form.cleaned_data['user_name'] + form.cleaned_data['text']
             recipient_list = ['csernus.szilvi@gmail.com']
 
-            email = EmailMessage(subject, message, 'csernus.szilvia@gmail.com', recipient_list)
+            email = EmailMessage(subject, message, from_email, recipient_list)
 
             # Attach the file/image
             if 'attachment' in request.FILES:
